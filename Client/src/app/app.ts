@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, signal, inject, OnInit } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +16,6 @@ export class App implements OnInit {
     this.getMembers();
   }
 
-
   private getMembers() {
     this.http.get('https://localhost:5001/api/members').subscribe({
       next: response => this.members.set(response),
@@ -25,8 +23,5 @@ export class App implements OnInit {
       complete: () => console.log('Request completed')
     });
   }
-
-   
-
 
 }
